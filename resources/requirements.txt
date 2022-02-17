@@ -104,16 +104,25 @@ requests-kerberos>=0.12,<0.13
 kafka-python>=1.4,<1.5
 confluent-kafka>=1.2,<1.3
 #confluent-kafka
-torch>=1.4,<1.5
 torchvision>=0.5,<0.6
 
 # fix version to avoid error in numba, fastparquet, ...
 llvmlite==0.32.0
 # custom
-pylint>=2.1,<2.2
+pylint>=2.10,<2.20
+pdf2image>=1.10,<1.20
 inflect>=5.3,<5.4
 textract==1.6.4
 pdfminer.six==20211012
 pytest>=6.2,<6.3
 XlsxWriter>=3.0,<3.1
 pykerberos>=1.2,<1.3
+yolov5>=6.0,<6.1
+lightgbm>=3.2,<3.3
+catboost>=1.0,<1.1
+transformers>=4.11,<4.12
+stanza>=1.3,<1.4
+efficientnet>=1.1,<1.2
+camembert>=0.11,<0.12 
+imgaug>=0.4,<0.5 
+alexnet-pytorch>=0.2,<0.3

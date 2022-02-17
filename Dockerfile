@@ -6,7 +6,7 @@ RUN apt update -qq && apt install -qqy --no-install-recommends \
       g++ unixodbc unixodbc-dev libpq-dev libsqlite3-dev \
       libkrb5-dev \
       libsasl2-2 libsasl2-dev libsasl2-modules-ldap \
-      python-pil tesseract-ocr-fra libtesseract-dev \
+      python-pil tesseract-ocr tesseract-ocr-fra libtesseract-dev poppler-utils\
       leptonica-progs libmagickwand-dev libpng-dev libjpeg62-turbo-dev libtiff5-dev libwebp-dev libopenjp2-7-dev libgif-dev \
       qt5-default libqt5webkit5-dev build-essential python-lxml python-pip xvfb \
       libgeos-dev \
@@ -15,6 +15,18 @@ RUN apt update -qq && apt install -qqy --no-install-recommends \
       ghostscript \
     && rm -rf /var/lib/apt/lists/*;
 # LIBS PART END
+
+# INSTALL JDK8
+RUN mkdir -p /usr/share/man/man1 && \
+    apt update -qq && \
+    apt -y install software-properties-common && \
+    add-apt-repository 'deb http://security.debian.org/debian-security stretch/updates main' && \
+    apt update && \
+    apt install -qqy --no-install-recommends openjdk-8-jdk && \
+    rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+ENV PATH=${PATH}:${JAVA_HOME}/bin
 
 # cuda/cudnn installation
 ENV CUDA_MAJOR_MINOR_VERSION 10.0
